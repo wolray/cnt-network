@@ -31,7 +31,7 @@ for j=1:n
         y(1,j)=yc2(j,pos(m1));
         y(2,j)=yc2(j,pos(m2));
     else
-        x(:,j)=[0;0];
-        y(:,j)=[0;0];
+        x(:,j)=0;
+        y(:,j)=0;
     end
 end
