@@ -3,10 +3,8 @@ from numpy import *
 def cross(x,y,a,Xs,Xd):
     k=tan(a)
     b=y[0:-1]-k*x[0:-1]
-    cut=a.shape[0]
-    n=a.shape[1]
-    xc=zeros((n,n))
-    yc=zeros((n,n))
+    cut,n=a.shape
+    xc=yc=zeros((n,n))
     for j1 in range(n-1):
         for j2 in range(j1+1,n):
             for i1 in range(cut):
@@ -38,8 +36,8 @@ def trim(x,y,xc,yc):
                 xc[j,:]=xc[:,j]=yc[j,:]=yc[:,j]=0
         if conv==count_nonzero(xc):
             break
-    xc2=xc+transpose(xc)-diag(diag(xc))
-    yc2=yc+transpose(yc)-diag(diag(yc))
+    xc2=xc+xc.T-diag(diag(xc))
+    yc2=yc+yc.T-diag(diag(yc))
     for j in range(n):
         if count_nonzero(xc2[j,:])>1:
             pos=where(xc2[j,:]!=0)
@@ -63,9 +61,8 @@ def out(l,beta,a,Xs,Xd,xc):
     sp.writelines('v source drain 10\n')
     secx=abs(1/cos(a))
     n=xc.shape[0]
-    xc2=xc+transpose(xc)-diag(diag(xc))
-    sig=0
-    s0=0
+    xc2=xc+xc.T-diag(diag(xc))
+    sig=s0=0
     for i in range(n):
         jwhere=where(xc2[i,:]!=0)[0]
         if count_nonzero(xc2[i,:])>1:
