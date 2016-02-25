@@ -1,6 +1,6 @@
 function out(l,beta,a,Xs,Xd,xc)
-sp=fopen('networks.sp','wt');
-fprintf(sp,['networks\n','.op\n']);
+sp=fopen('network.sp','wt');
+fprintf(sp,['network\n','.op\n']);
 fprintf(sp,['v source drain 10\n']);
 secx=abs(sec(a));
 n=size(xc,1);

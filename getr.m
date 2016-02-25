@@ -1,5 +1,5 @@
 function [ids,r]=getr()
-lis=fopen('networks.lis');
+lis=fopen('network.lis');
 fseek(lis,0,-1);
 
 while ~feof(lis)
