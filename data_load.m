@@ -1,5 +1,5 @@
-function [r,var]=data_load(filename)
+function [x,y]=data_load(filename)
 
 load(filename);
-var=data(1,:);
-r=data(2:end,:);
+x=data(1,:);
+y=data(2:end,:);
