@@ -34,9 +34,9 @@ AddTextSD(range,12,'(b)')
 axis off
 box on
 
-% Out(l,beta,a,xs,xd,xc);
+% ToSpice(l,beta,a,xs,xd,xc);
 % disp('Paused: Press any key')
 % pause()
-% [ids,r]=GetR();
+% [ids,r]=ReadR();
 
 % cden=size(find(xc~=0),1)/(x*(cw+2));
