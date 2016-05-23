@@ -1,4 +1,4 @@
-function [x,y,xc,yc,times]=trim(x,y,xc,yc)
+function [x,y,xc,yc,times]=Trim(x,y,xc,yc)
 n=size(x,2);
 
 for times=1:15

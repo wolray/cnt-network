@@ -1,4 +1,4 @@
-function [xc,yc]=cross(x,y,a,Xs,Xd)
+function [xc,yc]=Cross(x,y,a,xs,xd)
 k=tan(a);
 b=y(1:end-1,:)-k.*x(1:end-1,:);
 cut=size(a,1);
@@ -15,7 +15,7 @@ for j1=1:n-1
                         min(y(i1,j1),y(i1+1,j1))<yy && yy<max(y(i1,j1),y(i1+1,j1)) && ...
                         min(x(i2,j2),x(i2+1,j2))<xx && xx<max(x(i2,j2),x(i2+1,j2)) && ...
                         min(y(i2,j2),y(i2+1,j2))<yy && yy<max(y(i2,j2),y(i2+1,j2)) && ...
-                        Xs<xx && xx<Xd
+                        xs<xx && xx<xd
                     xc(j1,j2)=xx;
                     yc(j1,j2)=yy;
                 end
@@ -25,11 +25,11 @@ for j1=1:n-1
 end
 
 for j=1:n
-    if (x(1,j)-Xs)*(x(2,j)-Xs)<0
-        xc(j,j)=Xs;
-        yc(j,j)=y(1,j)-(x(1,j)-Xs)*tan(a(j));
-    elseif (x(1,j)-Xd)*(x(2,j)-Xd)<0
-        xc(j,j)=Xd;
-        yc(j,j)=y(1,j)-(x(1,j)-Xd)*tan(a(j));
+    if (x(1,j)-xs)*(x(2,j)-xs)<0
+        xc(j,j)=xs;
+        yc(j,j)=y(1,j)-(x(1,j)-xs)*tan(a(j));
+    elseif (x(1,j)-xd)*(x(2,j)-xd)<0
+        xc(j,j)=xd;
+        yc(j,j)=y(1,j)-(x(1,j)-xd)*tan(a(j));
     end
 end

@@ -1,4 +1,4 @@
-function [y,ymean]=data_clean(y,headcut,endcut,scale)
+function [y,ymean]=CleanData(y,headcut,endcut,scale)
 
 m=size(y,1);
 y=sort(y,1);

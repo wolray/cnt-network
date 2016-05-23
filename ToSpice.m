@@ -1,4 +1,4 @@
-function out(l,beta,a,Xs,Xd,xc)
+function ToSpice(l,beta,a,Xs,Xd,xc)
 sp=fopen('network.sp','wt');
 fprintf(sp,['network\n','.op\n']);
 fprintf(sp,['v source drain 10\n']);
