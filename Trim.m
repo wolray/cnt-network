@@ -1,4 +1,4 @@
-function [x,y,xc,yc,times]=Trim(x,y,xc,yc)
+function [x,y,xc,yc]=Trim(x,y,xc,yc)
 n=size(x,2);
 
 for times=1:15
@@ -15,6 +15,7 @@ for times=1:15
         break
     end
 end
+fprintf('trimming iterations: %d\n',times)
 
 xc2=xc+xc'-diag(diag(xc));
 yc2=yc+yc'-diag(diag(yc));
@@ -22,11 +23,11 @@ for j=1:n
     if length(find(xc2(j,:)))>1
         pos=find(xc2(j,:));
         if x(1,j)<x(2,j)
-            [x(1,j),m1]=min(xc2(j,pos),[],2);
-            [x(2,j),m2]=max(xc2(j,pos),[],2);
+            [x(1,j),m1]=min(xc2(j,pos));
+            [x(2,j),m2]=max(xc2(j,pos));
         else
-            [x(1,j),m1]=max(xc2(j,pos),[],2);
-            [x(2,j),m2]=min(xc2(j,pos),[],2);
+            [x(1,j),m1]=max(xc2(j,pos));
+            [x(2,j),m2]=min(xc2(j,pos));
         end
         y(1,j)=yc2(j,pos(m1));
         y(2,j)=yc2(j,pos(m2));

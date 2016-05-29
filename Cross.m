@@ -1,4 +1,5 @@
-function [xc,yc]=Cross(x,y,a,xs,xd)
+function [xc,yc]=Cross(cl,x,y,a)
+xs=1;xd=cl+1;
 k=tan(a);
 b=y(1:end-1,:)-k.*x(1:end-1,:);
 cut=size(a,1);
